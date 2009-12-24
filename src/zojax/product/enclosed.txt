@@ -1,0 +1,127 @@
+===========================
+Products for enclosed sites
+===========================
+
+Loading zcml configuration
+
+  >>> import zojax.product
+  >>> from zope.configuration import xmlconfig
+  >>> context = xmlconfig.string("""
+  ... <configure xmlns:zojax="http://namespaces.zope.org/zojax"
+  ...    xmlns="http://namespaces.zope.org/zope" i18n_domain="zojax">
+  ...    <include package="zojax.controlpanel" file="meta.zcml" />
+  ...    <include package="zojax.product" file="meta.zcml" />
+  ...    <include package="zope.security" file="meta.zcml" />
+  ...    <include package="z3c.baseregistry" file="meta.zcml" />
+  ...    
+  ...    <permission
+  ...      id="zojax.ManageProducts"
+  ...      title="Manage products" />
+  ...      
+  ...    <zojax:configlet
+  ...      name="product"
+  ...      schema="zojax.product.interfaces.IProductInstaller"
+  ...      title="Products management"
+  ...      description="This is the Add-on Products install section."
+  ...      class="zojax.product.installer.ProductsInstaller"
+  ...      permission="zojax.ManageProducts" />
+  ...
+  ... </configure>""")
+
+
+Product
+
+  >>> from zope import schema, component, interface
+
+  >>> class IMyProduct(interface.Interface):
+  ...     """ Basic product """
+
+  >>> context = xmlconfig.string('''
+  ... <configure
+  ...    xmlns:zojax="http://namespaces.zope.org/zojax" i18n_domain="test">
+  ... 
+  ...   <zojax:product
+  ...     name="my-product"
+  ...     title="My product"
+  ...     configurable="true"
+  ...     schema="zojax.product.README.IMyProduct" />
+  ...
+  ... </configure>''', context)
+
+  >>> from zojax import product
+  >>> from zojax.product.interfaces import IProduct
+
+  >>> productRegistry = zojax.product.registries['my-product']
+
+  >>> class IMyUtility(interface.Interface):
+  ...     """ """
+
+  >>> class MyUtility(object):
+  ...     interface.implements(IMyUtility)
+
+  >>> utility = MyUtility()
+  >>> productRegistry.registerUtility(utility, name='myUtility')
+
+  >>> from zope.app.folder.folder import Folder
+  >>> from zope.app.component.site import LocalSiteManager
+  >>> from zope.app.component.hooks import getSite, setSite
+
+  >>> site = getSite()
+  >>> site1 = Folder()
+  >>> site['site1'] = site1
+  >>> sm = LocalSiteManager(site1)
+  >>> site1.setSiteManager(sm)
+
+  >>> site.getSiteManager().queryUtility(IMyUtility, name='myUtility') is None
+  True
+
+  >>> site1.getSiteManager().queryUtility(IMyUtility, name='myUtility') is None
+  True
+
+Install product
+
+  >>> product = component.getUtility(IMyProduct)
+  >>> product.isInstalled()
+  False
+  >>> product.install()
+
+  >>> site.getSiteManager().queryUtility(IMyUtility, name='myUtility')
+  <zojax.product.README.MyUtility object at ...>
+
+  >>> site1.getSiteManager().queryUtility(IMyUtility, name='myUtility')
+  <zojax.product.README.MyUtility object at ...>
+
+  >>> product.isInstalled()
+  True
+  >>> product.isUninstallable()
+  True
+
+Installation status in subsite
+
+  >>> setSite(site1)
+  >>> product = component.getUtility(IMyProduct)
+  >>> product.isInstalled()
+  True
+  >>> product.isUninstallable()
+  False
+
+  >>> setSite(site)
+  >>> product = component.getUtility(IMyProduct)
+  >>> product.uninstall()
+
+  >>> setSite(site1)
+  >>> product = component.getUtility(IMyProduct)
+  >>> product.isInstalled()
+  False
+  >>> product.install()
+  
+  >>> site1.getSiteManager().queryUtility(IMyUtility, name='myUtility')
+  <zojax.product.README.MyUtility object at ...>
+
+  >>> setSite(site)
+  >>> product = component.getUtility(IMyProduct)
+  >>> product.isInstalled()
+  False
+
+  >>> site.getSiteManager().queryUtility(IMyUtility, name='myUtility') is None
+  True

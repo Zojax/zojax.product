@@ -1,0 +1,61 @@
+<div i18n:domain="zojax.product" tal:define="data view/getProducts">
+  <div class="z-topframe" tal:condition="data/installed">
+    <h1 i18n:translate="">Installed Products</h1>
+
+    <form tal:attributes="action request/URL" method="post">
+      <ul class="z-listing">
+	<li tal:repeat="product data/installed">
+	  <div class="z-listing-icon">
+	    <input class="noborder" type="checkbox" name="products:list"
+		   tal:attributes="value product/name"
+		   tal:condition="product/uninstallable" />
+	    <tal:block tal:condition="not:product/uninstallable">
+	      &nbsp;&nbsp;&nbsp;&nbsp;</tal:block>
+	    <img tal:replace="structure product/product/@@zmi_icon" />
+	  </div>
+	  <div class="z-listing-details">
+	    <a tal:omit-tag="not:product/configlet"
+	       tal:attributes="href string:${product/name}/">
+	      <span tal:content="product/title"></span>
+	    </a>
+	    <div tal:content="product/description"></div>
+	  </div>
+	</li>
+      </ul>
+
+      <div class="z-form-controls" tal:condition="data/hasUninstallable">
+	<input type="submit" class="z-form-button" name="update" 
+	       value="Update" i18n:attributes="value" />
+	<input type="submit" class="z-form-removebutton" name="uninstall" 
+	       value="Uninstall" i18n:attributes="value" />
+      </div>
+    </form>
+  </div>
+  
+  <div class="frame" tal:condition="data/notinstalled"
+       tal:attributes="class python:not data['installed'] and 'topframe' or 'frame'">
+    <h1 i18n:translate="">Products available for install</h1>
+    <p i18n:translate="">This is the Add-on Products install section, you can add products in the lists below.</p>
+
+    <form tal:attributes="action request/URL" method="post">
+      <ul class="z-listing">
+	<li tal:repeat="product data/notinstalled">
+	  <div class="z-listing-icon">
+	    <input class="noborder" type="checkbox"
+                   name="availproducts:list" tal:attributes="value product/name" />
+	    <img tal:replace="structure product/product/@@zmi_icon" />
+	  </div>
+	  <div class="z-listing-details">
+	    <span tal:content="product/title"></span>
+	    <div tal:content="product/description"></div>
+	  </div>
+	</li>
+      </ul>
+
+      <div class="z-form-controls">
+	<input type="submit" class="z-form-button" name="install" 
+	       value="Install" i18n:attributes="value" />
+      </div>
+    </form>
+  </div>
+</div>

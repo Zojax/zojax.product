@@ -1,0 +1,120 @@
+# #############################################################################
+#
+# Copyright (c) 2003-2004 Zope Foundation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+# #############################################################################
+msgid ""
+msgstr ""
+"Project-Id-Version: Development/Unknown\n"
+"POT-Creation-Date: Fri Nov 21 17:10:38 2008\n"
+"PO-Revision-Date: 2008-11-21 17:12+0600\n"
+"Last-Translator: Nikolay Kim <fafhrd91@gmail.com>\n"
+"Language-Team: Zope 3 Developers <zope3-dev@zope.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: zope/app/locales/extract.py\n"
+
+#: src/zojax/product/browser.zcml:7
+msgid "Product"
+msgstr "Продукт"
+
+#: src/zojax/product/configure.zcml:13
+msgid "This is the Add-on Products install section."
+msgstr "Панель управления дополнительными продуктами."
+
+#: src/zojax/product/configure.zcml:13 src/zojax/product/browser.zcml:13
+#: src/zojax/product/browser.zcml:26
+msgid "Products management"
+msgstr "Управление продуктами"
+
+#: src/zojax/product/configure.zcml:9
+msgid "Manage products"
+msgstr "Управление продуктами"
+
+#: src/zojax/product/product.py:50 src/zojax/product/product.py:59
+msgid "Required product is not found."
+msgstr "Необходимый продукт не найден."
+
+#: src/zojax/product/product.py:70
+msgid "Product already installed."
+msgstr "Продукт уже установлен."
+
+#: src/zojax/product/product.py:88 src/zojax/product/product.py:99
+msgid "Product is not installed."
+msgstr "Продукт не установлен."
+
+#: src/zojax/product/registry.py:60
+msgid "Product: Broken product!!!"
+msgstr "Продукт: Не работающий продукт!!!"
+
+#: src/zojax/product/utils.py:33
+msgid "Can't create utility."
+msgstr "Невозможно создать утилиту."
+
+#: src/zojax/product/view.pt:27
+msgid "Update"
+msgstr "Обновить"
+
+#: src/zojax/product/view.pt:29
+msgid "Uninstall"
+msgstr "Деинсталлировать"
+
+#: src/zojax/product/view.pt:3
+msgid "Installed Products"
+msgstr "Установленные продукты"
+
+#: src/zojax/product/view.pt:37
+msgid "Products available for install"
+msgstr "Доступные продукты"
+
+#: src/zojax/product/view.pt:38
+msgid ""
+"This is the Add-on Products install section, you can add products in the "
+"lists below."
+msgstr "Вы можете установить продукты из последующего списка."
+
+#: src/zojax/product/view.pt:56
+msgid "Install"
+msgstr "Установить"
+
+#: src/zojax/product/view.py:107
+msgid "Select one or more products to uninstall."
+msgstr "Выбирите один или более продуктов для деинсталлирования.\""
+
+#: src/zojax/product/view.py:114
+msgid "Selected products has been uninstalled."
+msgstr "Выбранные продукты были деинсталлированы."
+
+#: src/zojax/product/view.py:72
+msgid "Select one or more products to install."
+msgstr "Выбирите один или более продуктов для установки."
+
+#: src/zojax/product/view.py:79
+msgid "Selected products has been installed."
+msgstr "Выбранные продукты были установлены."
+
+#: src/zojax/product/view.py:91
+msgid "Select one or more products to update."
+msgstr "Выбирите один или более продуктов для обновления."
+
+#: src/zojax/product/view.py:98
+msgid "Selected products has been updated."
+msgstr "Выбранные продукты обновлены."
+
+#~ msgid "Product extension"
+#~ msgstr "Расширение продукта"
+
+#~ msgid "(Installed)"
+#~ msgstr "(Установленный)"
+
+#~ msgid "(Not installed)"
+#~ msgstr "(Не установленный)"

@@ -1,0 +1,34 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:zojax="http://namespaces.zope.org/zojax"
+   xmlns:browser="http://namespaces.zope.org/browser"
+   i18n_domain="zojax.product">
+
+  <browser:icon
+     name="zmi_icon"
+     title="Product"
+     for=".interfaces.IProduct"
+     file="product_icon.gif" />
+
+  <browser:icon
+     name="zmi_icon"
+     title="Products management"
+     for=".interfaces.IProductInstaller"
+     file="product_icon.gif" />
+
+  <zojax:pagelet
+     name="index.html"
+     for=".interfaces.IProductInstaller"
+     template="view.pt"
+     class=".view.InstallerView"
+     permission="zojax.ManageProducts"  />
+
+  <browser:menuItem
+     for=".interfaces.IProductInstaller"
+     menu="zmi_views"
+     title="Products management"
+     action="@@index.html"
+     permission="zojax.ManageProducts"
+     order="1" />
+
+</configure>
