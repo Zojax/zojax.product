@@ -18,6 +18,7 @@ $Id$
 from BTrees.OOBTree import OOBTree
 
 from zope import interface, event
+from zope.i18n import translate
 from zope.component import getSiteManager
 from zope.component import getUtility, queryUtility, getUtilitiesFor
 from zope.app.component.hooks import getSite
@@ -49,7 +50,7 @@ class Product(object):
             product = queryUtility(IProduct, productId)
             if product is None:
                 raise interfaces.RequiredProductNotFound(
-                    _('Required product is not found.'))
+                    translate(_('Required product ${id} is not found.', mapping=dict(id=productId))))
             if not product.__installed__:
                 product.install()
 
@@ -58,7 +59,7 @@ class Product(object):
             product = queryUtility(IProduct, productId)
             if product is None:
                 raise interfaces.RequiredProductNotFound(
-                    _('Required product is not found.'))
+                    translate(_('Required product ${id} is not found.', mapping=dict(id=productId))))
             if not product.__installed__:
                 product.install()
             else:
