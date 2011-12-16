@@ -1,0 +1,114 @@
+##############################################################################
+#
+# Copyright (c) 2003-2004 Zope Corporation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+msgid ""
+msgstr ""
+"Project-Id-Version: Development/Unknown\n"
+"POT-Creation-Date: Thu Dec  8 23:22:29 2011\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Zope 3 Developers <zope3-dev@zope.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: zope/app/locales/extract.py\n"
+
+#: src/zojax/product/browser.zcml:7
+msgid "Product"
+msgstr ""
+
+#: src/zojax/product/configure.zcml:11
+msgid "This is the Add-on Products install section."
+msgstr ""
+
+#: src/zojax/product/configure.zcml:11
+#: src/zojax/product/browser.zcml:13
+#: src/zojax/product/browser.zcml:26
+msgid "Products management"
+msgstr ""
+
+#: src/zojax/product/configure.zcml:7
+msgid "Manage products"
+msgstr ""
+
+#: src/zojax/product/product.py:53
+#: src/zojax/product/product.py:62
+#. Default: ""
+msgid "Required product ${id} is not found."
+msgstr ""
+
+#: src/zojax/product/product.py:73
+msgid "Product already installed."
+msgstr ""
+
+#: src/zojax/product/product.py:92
+#: src/zojax/product/product.py:104
+msgid "Product is not installed."
+msgstr ""
+
+#: src/zojax/product/registry.py:60
+msgid "Product: Broken product!!!"
+msgstr ""
+
+#: src/zojax/product/utils.py:33
+msgid "Can't create utility."
+msgstr ""
+
+#: src/zojax/product/view.pt:27
+msgid "Update"
+msgstr ""
+
+#: src/zojax/product/view.pt:29
+msgid "Uninstall"
+msgstr ""
+
+#: src/zojax/product/view.pt:3
+msgid "Installed Products"
+msgstr ""
+
+#: src/zojax/product/view.pt:37
+msgid "Products available for install"
+msgstr ""
+
+#: src/zojax/product/view.pt:38
+msgid "This is the Add-on Products install section, you can add products in the lists below."
+msgstr ""
+
+#: src/zojax/product/view.pt:56
+msgid "Install"
+msgstr ""
+
+#: src/zojax/product/view.py:107
+msgid "Select one or more products to uninstall."
+msgstr ""
+
+#: src/zojax/product/view.py:114
+msgid "Selected products has been uninstalled."
+msgstr ""
+
+#: src/zojax/product/view.py:72
+msgid "Select one or more products to install."
+msgstr ""
+
+#: src/zojax/product/view.py:79
+msgid "Selected products has been installed."
+msgstr ""
+
+#: src/zojax/product/view.py:91
+msgid "Select one or more products to update."
+msgstr ""
+
+#: src/zojax/product/view.py:98
+msgid "Selected products has been updated."
+msgstr ""
+
